@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory
         $this->call([
-            LocationSeeder::class,
+            UserSeeder::class,
         ]);
     }
 }

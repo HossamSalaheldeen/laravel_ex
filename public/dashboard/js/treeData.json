@@ -1,0 +1,77 @@
+[
+    {
+        "id": 1,
+        "name": "Hossam",
+        "parent_id": null,
+        "parent": "null",
+        "children": [
+            {
+                "id": 2,
+                "name": "Ahmed",
+                "parent_id": 1,
+                "parent": "Hossam",
+                "children": [
+                    {
+                        "id": 4,
+                        "name": "Sara",
+                        "parent_id": 2,
+                        "parent": "Ahmed",
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "name": "Ali",
+                "parent_id": 1,
+                "parent": "Hossam",
+                "children": [
+                    {
+                        "id": 5,
+                        "name": "Sally",
+                        "parent_id": 3,
+                        "parent": "Ali",
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "name": "Hazem",
+        "parent_id": null,
+        "parent": "null",
+        "children": [
+            {
+                "id": 7,
+                "name": "Mai",
+                "parent_id": 6,
+                "parent": "Hazem",
+                "children": []
+            },
+            {
+                "id": 8,
+                "name": "Radwa",
+                "parent_id": 6,
+                "parent": "Hazem",
+                "children": []
+            },
+            {
+                "id": 9,
+                "name": "Mazen",
+                "parent_id": 6,
+                "parent": "Hazem",
+                "children": [
+                    {
+                        "id": 10,
+                        "name": "Fawzy",
+                        "parent_id": 9,
+                        "parent": "Mazen",
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    }
+]

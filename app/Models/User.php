@@ -20,6 +20,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'manager_id'
     ];
 
     /**
@@ -40,4 +41,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public $timestamps = false;
+
+    public function manager() {
+        return $this->belongsTo(self::class,'manager_id');
+    }
+
+    public function staff() {
+        return $this->hasMany(self::class,'manager_id');
+    }
+
+    public function childStaff() {
+        return $this->hasMany(self::class,'manager_id')->with('staff');
+    }
 }
