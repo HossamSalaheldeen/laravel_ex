@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\Dashboard\LocationController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-use \App\Http\Controllers\LocationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,11 +14,12 @@ use \App\Http\Controllers\LocationController;
 |
 */
 
-Route::prefix('dashboard')->group(function () {
+Route::group(['prefix' => 'dashboard', 'as'=>'dashboard.'] ,function () {
     Route::get('users', [UserController::class,'index']);
     Route::get('managers', [UserController::class,'indexManagers']);
+    Route::resource('locations', LocationController::class);
 });
-Route::resource('locations', LocationController::class);
+
 Route::get('tree', function (){
     return view('dashboard.users.tree');
 });

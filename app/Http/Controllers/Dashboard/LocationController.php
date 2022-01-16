@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Dashboard;
 
+use App\Http\Controllers\Controller;
 use App\Models\Location;
 use Illuminate\Http\Request;
 
@@ -26,7 +27,7 @@ class LocationController extends Controller
      */
     public function create()
     {
-        //
+        return  view('dashboard.locations.create');
     }
 
     /**
@@ -37,7 +38,9 @@ class LocationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Location::create($request->only('name'));
+
+        return redirect()->route('dashboard.locations.index')->with(['success' => 'Location Successfully Created']);
     }
 
     /**
@@ -57,9 +60,9 @@ class LocationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Location $location)
     {
-        //
+        return  view('dashboard.locations.edit',compact('location'));
     }
 
     /**
@@ -69,9 +72,11 @@ class LocationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Location $location)
     {
-        //
+        $location->update($request->only('name'));
+
+        return redirect()->route('dashboard.locations.index')->with(['success' => 'Location Successfully Updated']);
     }
 
     /**
@@ -83,6 +88,6 @@ class LocationController extends Controller
     public function destroy(Location $location)
     {
         $location->delete();
-        return response()->json(['success' => 'true']);
+        return redirect()->route('dashboard.locations.index')->with(['success' => 'Location Successfully Deleted']);
     }
 }
